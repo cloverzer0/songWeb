@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: aquamarine;
+      margin: 50px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 300px;
+    }
+
+    input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    h1 {
+      color: blue;
+    }
+    h2 {
+        color: darkgreen;
+        margin-bottom: 10px;
+    }
+
+    a {
+         display: block;
+        color: #333;
+    }
+  </style>
+</head>
+<body>
+    <h1>Music Search</h1>
+      <a href="/users">users</a>
+      <a href="/playlist">My PlayList</a>
+    <h2>Type in song name</h2>
+   <form action="/find" method="GET">
+      <input type="text" name="title" placeholder="Enter your song title">
+      <input type="submit" value="Search">
+  </form>
+    <div> 
+        {{#each songEntries}} 
+           <p><a href= 'song/{{this.id}}'>{{this.id}} {{this.title}}</a></p> 
+        {{/each}} 
+     </div>
+</body>
+</html>
